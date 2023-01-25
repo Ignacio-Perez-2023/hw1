@@ -174,6 +174,7 @@ VALUES ("Anne_Hathaway");
 -- **Start of studios table** (IP)
 INSERT INTO studios (name)
 VALUES ("Warner_Bros");
+
 -- **End of studios table** (IP)
 
 -- **Start of movies table** (IP)
@@ -185,6 +186,7 @@ VALUES ("The_Dark_Night", 2008, "PG-13", 1);
 
 INSERT INTO movies (title, year_released, MPAA_rating, studio_id)
 VALUES ("The_Dark_Night_Rises", 2012, "PG-13", 1);
+
 -- **End of movies table** (IP)
 
 -- **Start of characters table** (IP)
@@ -244,12 +246,18 @@ VALUES ("Selina_Kyle", 3, 11);
 -- The SQL statement for the movies output
 -- TODO!
 
+SELECT movies.title, movies.year_released, movies.MPAA_rating, studios.name
+FROM movies INNER JOIN studios ON studios.id = movies.studio_id; 
+
 -- Prints a header for the cast output
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
 
-
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movies.title, actors.name,  characters.name
+FROM characters INNER JOIN movies ON movies.id = characters.movie_id
+INNER JOIN actors ON actors.id = characters.actor_id;
