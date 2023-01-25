@@ -112,127 +112,127 @@
 
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT,
+  movie_title TEXT,
    year_released INTEGER,
    MPAA_rating TEXT,
    studio_id INTEGER);
 
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-   name TEXT);
+   studio_name TEXT);
 
 CREATE TABLE characters (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT,
+  character_name TEXT,
   movie_id INTEGER,
   actor_id INTEGER);
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-   name TEXT);
+   actor_name TEXT);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
 -- **Start of actors table** (IP)
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Christian_Bale");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Michael_Caine");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Liam_Neeson");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Katie_Holmes");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Gary_Oldman");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Heath_Ledger");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Aaron_Eckhart");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Maggie_Gyllenhaal");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Tom_Hardy");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Joseph_Gordon-Levitt");
 
-INSERT INTO actors (name)
+INSERT INTO actors (actor_name)
 VALUES ("Anne_Hathaway");
 
 -- **End of actors table** (IP)
 
 -- **Start of studios table** (IP)
-INSERT INTO studios (name)
+INSERT INTO studios (studio_name)
 VALUES ("Warner_Bros");
 
 -- **End of studios table** (IP)
 
 -- **Start of movies table** (IP)
-INSERT INTO movies (title, year_released, MPAA_rating, studio_id)
+INSERT INTO movies (movie_title, year_released, MPAA_rating, studio_id)
 VALUES ("Batman_Begins", 2005, "PG-13", 1);
 
-INSERT INTO movies (title, year_released, MPAA_rating, studio_id)
+INSERT INTO movies (movie_title, year_released, MPAA_rating, studio_id)
 VALUES ("The_Dark_Night", 2008, "PG-13", 1);
 
-INSERT INTO movies (title, year_released, MPAA_rating, studio_id)
+INSERT INTO movies (movie_title, year_released, MPAA_rating, studio_id)
 VALUES ("The_Dark_Night_Rises", 2012, "PG-13", 1);
 
 -- **End of movies table** (IP)
 
 -- **Start of characters table** (IP)
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Bruce_Wayne", 1, 1);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Alfred", 1, 2);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Ra's_Al_Ghul", 1, 3);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Rachel_Dawes", 1, 4);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Comissioner_Gordon", 1, 5);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Bruce_Wayne", 2, 1);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Joker", 2, 6);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Harvey_Dent", 2, 7);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Alfred", 2, 2);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Rachel_Dawes", 2, 8);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Bruce_Wayne", 3, 1);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Commissioner_Gordon", 3, 5);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Bane", 3, 9);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("John_Blake", 3, 10);
 
-INSERT INTO characters (name, movie_id, actor_id)
+INSERT INTO characters (character_name, movie_id, actor_id)
 VALUES ("Selina_Kyle", 3, 11);
 
 -- **End of characters table** (IP)
@@ -246,7 +246,7 @@ VALUES ("Selina_Kyle", 3, 11);
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT movies.title, movies.year_released, movies.MPAA_rating, studios.name
+SELECT movies.movie_title, movies.year_released, movies.MPAA_rating, studios.studio_name
 FROM movies INNER JOIN studios ON studios.id = movies.studio_id; 
 
 -- Prints a header for the cast output
@@ -258,6 +258,6 @@ FROM movies INNER JOIN studios ON studios.id = movies.studio_id;
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT movies.title, actors.name,  characters.name
+SELECT movies.movie_title, actors.actor_name,  characters.character_name
 FROM characters INNER JOIN movies ON movies.id = characters.movie_id
 INNER JOIN actors ON actors.id = characters.actor_id;
