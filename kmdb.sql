@@ -115,26 +115,33 @@ CREATE TABLE movies (
   title TEXT,
    year_released TEXT,
    MPAA_rating TEXT,
-   studio TEXT,
-   character_1 TEXT,
-   character_2 TEXT,
-   character_3 TEXT,
-   character_4 TEXT,
-   character_5 TEXT);
+   studio_id INTEGER);
 
 CREATE TABLE studios (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_id TEXT,
-   name TEXT,);
+   name TEXT);
 
 CREATE TABLE characters (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
   movie_id TEXT,
-   name TEXT,);
+  actor_id TEXT);
+
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+   name TEXT);
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO actors (name)
+VALUES ("Christian_Bale");
+
+-- INSERT INTO movies (
+-- title, year_released, MPAA_rating, studio_id)
+
 
 -- Prints a header for the movies output
 .print "Movies"
